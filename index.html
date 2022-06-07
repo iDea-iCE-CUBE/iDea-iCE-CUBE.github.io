@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <title>iCE Web 主页</title>
+    <style>
+        body{
+            margin:0;
+            font-size:16px;
+            background-color:#e9e9e9;
+        }
+        @font-face {
+            font-family: 'iconfont';
+            src: url('./icon/iconfont.ttf?t=1628414370915') format('truetype');
+        }
+        .iconfont {
+            font-family: "iconfont",system-ui !important;
+            font-weight: bold;
+            font-style:normal;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        header{
+            position:fixed;
+            height:59px;
+            width:100%;
+            background-color:white;
+            box-shadow: 0 0 25px rgba(36, 37, 38, 0.1);
+        }
+        a{
+            /* 链接 */
+            color:black;
+            text-decoration:none;
+            transition:all 0.2s linear 0s;
+        }
+        a:hover{
+            color:dodgerblue;
+        }
+        nav{
+            /* 导航栏 */
+            display:inline-block;
+            height:100%;
+            width:50%;
+        }
+        nav a{
+            
+            display:inline-block;
+            padding-left:10px;
+            padding-right:10px;
+            height:54px;
+            margin-right:5%;
+            line-height:59px;
+        }
+        #focusA{
+            /* 当前导航选项的蓝色底 */
+            border-bottom:dodgerblue solid 5px;
+        }
+        #logo{
+            /* logo */
+            float:left;
+            height:100%;
+            margin-left:5%;
+            margin-right:5%;
+        }
+        #searchIndex{
+            /* 搜索键 */
+            float:right;
+            margin-top:11px;
+            padding:8px 18px;
+            font-size:14px;
+            background-color:#e9e9e9;
+            border-radius:25px;
+            transition:all 0.2s linear 0s;
+        }
+        #searchIndex:hover{
+            /* 搜索键 */
+            color:dodgerblue;
+            background-color: #e9eff6;
+        }
+        .clickable{
+            /* 能够被点击的键 */
+            cursor:pointer;
+        }
+        #avatarBox{
+            /* 头像容器 */
+            float:right;
+            margin:5px 3% auto 1%;
+            height:39px;
+            width:39px;
+            padding:0;
+            background-image:url("avatar/noneAvatar.jpg");
+            background-size:auto 100%;
+            border-radius:50%;
+            border:white solid 3px;
+            box-shadow:2px 2px 18px rgba(0,0,0,0.1);
+            overflow:hidden;
+            transition:all 0.2s linear 0s;
+        }
+        #avatarBox:hover{
+            /* 头像容器 */
+            border-color:dodgerblue;
+        }
+        @media screen and (max-width:767px) {
+            /*窄荧幕界面*/
+            a{
+                color:red;
+            }
+        }
+    </style>
+</head>
+    <body>
+        <header>
+            <img id="logo" onclick="toHome()" src="img/iceLogo.jpg" alt="ice logo"/>
+                <nav>
+                    <a id="focusA" href="./index.html">首页</a>
+                    <a href="./">待定</a>
+                    <a href="./">待定</a>
+                    <a href="./">关于</a>
+                </nav>
+            <div id="avatarBox" onclick="accountSetting()" class="clickable"></div>
+            <div id="searchIndex" class="clickable" onclick ='notIndex()'>
+                搜索&nbsp;&nbsp;<span class="iconfont">&#xe63c;</span>
+            </div>
+        </header>
+        <article></article>
+    <script>
+        function accountSetting(){
+                 window.open("official/login.html", "_self");
+        }
+        function toHome(){
+                 window.open("index.html", "_self");
+        }
+        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            window.open("oldWeb","_self");
+        }
+        function notIndex(){
+            alert("即将上线丨敬请期待");
+        }
+    </script>
+    </body>
+</html>

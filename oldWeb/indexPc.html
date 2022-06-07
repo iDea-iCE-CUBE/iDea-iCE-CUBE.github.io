@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>iCE CUBE</title>
+<script src="./js/commandPc.js"></script>
+</head>
+<body>
+    <script>
+        var UA;
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ['Android', 'iPhone','SymbianOS', 'Windows Phone','iPad','iPod'];
+        UA = "pc";
+        for (var i = 0; i < Agents.length; i++) {
+            if (userAgentInfo.indexOf(Agents[i]) != -1) {
+            UA = "pe";
+            break;
+            }
+        }
+        if(UA == "pe"){
+            window.location.href="index.html";
+        }
+    </script>
+    <h1>暂不支持Pc端访问，请更换到Pe端</h1>
+</body>
+</html>
