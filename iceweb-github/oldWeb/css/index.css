@@ -1,0 +1,281 @@
+
+body {
+    text-align: center;
+
+    font-family: 微软雅黑;
+    background-color: #F5F5F4;
+}
+
+input {
+    /*去除iOSinput特殊性*/
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+#messageBoardForm {
+    /*留言板输入区*/
+    width: 60%;
+    height: 50px;
+    display: inline-block;
+
+    font-size: 12px;
+}
+
+#messageBoardForm input {
+    /*表单输入框*/
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#formExecuteInstructions {
+    /*表单提交*/
+    width: 20px;
+    height: 53px;
+    float: right;
+
+    font-size: 0px;
+    border: none;
+    background-color: red;
+}
+
+#messageBoardContent {
+    /*留言板内容*/
+    border-top: 2px solid #F5F5F4;
+    border-bottom: 2px solid #F5F5F4;
+}
+
+#messageBoard h1 {
+    /*留言板标题*/
+    padding-left: 10px;
+    margin: 10px;
+}
+
+#messageBoard {
+    /*留言板*/
+    height: 313px;
+}
+
+#popUp {
+    /*弹窗*/
+    display: none;
+    position: fixed;
+    background: black;
+    height: 50px;
+    width: 100%;
+    z-index: 2;
+    top: 45%;
+    left: 0;
+
+    text-align: center;
+    line-height: 50px;
+
+    opacity: 0.8;
+    overflow: hidden;
+}
+
+#popUpText {
+    /*弹窗内容*/
+    display: inline;
+    font-size: 10px;
+
+    opacity: 1;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+#menu {
+    /*菜单*/
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 1cm;
+    height: 1cm;
+    z-index: 2;
+
+    text-align: center;
+
+    color: white;
+    border-radius: 50%;
+    background-color: red;
+    border: 2px solid white;
+    line-height: 1cm;
+}
+
+#occlusionLayer {
+    /*遮挡层*/
+    display: none;
+    position: fixed;
+    background: black;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    opacity: 0.5;
+}
+
+#developerOptions {
+    /*开发者选项容器*/
+    width: 80%;
+    position: fixed;
+    bottom: 15%;
+    right: -80%;
+    z-index: 2;
+
+    text-align: left;
+
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#deBug1 {
+    /*开发者选项输入栏*/
+    width: 100%;
+    margin-left: 5px;
+
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.executeInstructions {
+    /*板块激活按钮*/
+    width: 20px;
+    height: 65px;
+    float: right;
+
+    color: red;
+    background-color: red;
+}
+
+#developerOptionsLeft {
+    /*开发者选项左侧容器*/
+    margin-left: 2px;
+    margin-top: 3px;
+    width: 70%;
+    height: 60px;
+
+    display: inline-block;
+}
+
+#developerOptions h1 {
+    /*开发者选项标题*/
+    display: inline-block;
+    width: 210px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+
+    font-size: 14px;
+}
+
+#header1 {
+    /*页面顶部图像容器*/
+    margin-bottom: 50px;
+    float: left;
+    margin-left: -2.5%;
+    margin-top: -2.5%;
+    width: 105%;
+    height: auto;
+    max-height: 210px;
+    overflow: hidden;
+
+    border-bottom: 2px solid white;
+}
+
+article {
+    /*板块主体*/
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 50px;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+
+    box-shadow: 0 6px 15px rgba(36, 37, 38, 0.1);
+    border-radius: 5px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.section1 {
+    /*板块封面容器*/
+    width: 100%;
+    height: 190px;
+
+    overflow: hidden;
+}
+
+.section2 {
+    /*板块头像容器*/
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 45px;
+    height: 45px;
+    float: left;
+
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.section3 {
+    /*板块说明容器*/
+    width: 70%;
+    height: 60px;
+    float: left;
+
+}
+
+.section3 h1 {
+    /*板块标题*/
+    width: 210px;
+    height: 30px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+
+    font-size: 14px;
+}
+
+.section3 p {
+    /*板块小字*/
+    float: left;
+    width: 100%;
+    height: 30px;
+    margin-top: -20px;
+    margin-left: 5px;
+
+    font-size: 8px;
+    font-weight: normal;
+}
+
+.executeInstructions {
+    /*命令执行按钮*/
+    width: 20px;
+    height: 65px;
+    float: right;
+    font-size: 15px;
+
+    color: red;
+    font-weight: bold;
+    background-color: red;
+}
+
+.cover, .avatar {
+    /*板块头像，封面*/
+    max-width: 100%;
+}
+
+li {
+    /*留言板*/
+    font-size: 12px;
+}

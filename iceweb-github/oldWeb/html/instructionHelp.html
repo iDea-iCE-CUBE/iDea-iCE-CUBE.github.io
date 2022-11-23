@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
+    <title>iCE指令帮助文档</title>
+    <link rel="stylesheet" href="../css/article.css" type="text/css"/>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/jquery.color.js"></script>
+    <script src="../js/command.js"></script>
+    <script>
+        function navClick() {
+            window.open("../index.html", "_self");
+        }
+    </script>
+    <style>
+        @media screen and (min-width: 767px) {
+            /*宽荧幕界面*/
+            html {
+                background-color: #FFFFFF;
+            }
+
+            body {
+                max-width: 450px;
+                padding: 0 4px 4px 4px;
+                margin: auto;
+                overflow-x: hidden;
+
+                border: 3px solid #FFFFFF;
+                box-shadow: 0 6px 15px rgba(36, 37, 38, 0.1);
+                background-color: #f8f8f8;
+            }
+
+            #header1 {
+                width: 110%;
+                max-width: 458px;
+                margin: 0 0 10px -4px;
+            !important;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header id="header1"><img src=../picture/instructionHelp.png id="topPic"></img></header>
+<br/>
+<div id="occlusionLayer"><!--遮挡层--></div>
+<nav id="menu" onclick="openMenu()"><!--菜单-->≡</nav>
+<!--000000000开发者选项000000000-->
+<article id="developerOptions">
+    <section id="developerOptionsLeft">
+        <h1>开发者选项</h1>
+        <input class="darkLightInput" id="deBug1" type="text" placeholder="输入指令"></input>
+    </section>
+    <section class="executeInstructions" id="deBug2" onclick="deBug()">
+    </section>
+</article>
+<!--0000000000弹窗0000000000-->
+<div id="popUp"><p id="popUpText"></p></div>
+<!--网页说明-->
+<section class="section1">
+    <img class="avatar" src="../picture/iceCube.png"></img>
+</section>
+<section class="section2">
+    <h1>指令帮助文档</h1><br/>
+    <p>iCE CUBE</p>
+</section>
+
+
+<!--段落1-->
+<article class="article1">
+    <h1>指令列表（不区分大小写）</h1>
+    <ul>
+        <li>“dark”深色模式</li>
+        <li>“light”浅色模式</li>
+        <li>“UA”查看自己的浏览器UA为PC还是PE</li>
+    </ul>
+</article>
+
+
+<!--段落2-->
+<article class="article1">
+    <h1>教程</h1>
+    <img class="cover darkLightTop" src="../picture/instructionHelpPic1.png"></img>
+</article>
+<nav id="nav1" class="article1 darkLightTop" onclick="navClick()"><p><strong>返回主页</strong></p></nav>
+
+
+</body>
+</html>

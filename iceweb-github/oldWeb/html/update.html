@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
+    <title>公告</title>
+    <link rel="stylesheet" href="../css/article.css" type="text/css"/>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/jquery.color.js"></script>
+    <script src="../js/command.js"></script>
+    <script>
+        function navClick() {
+            window.open("../index.html", "_self");
+        }
+    </script>
+    <style>
+        @media screen and (min-width: 767px) {
+            /*宽荧幕界面*/
+            html {
+                background-color: #FFFFFF;
+            }
+
+            body {
+                max-width: 450px;
+                padding: 0 4px 4px 4px;
+                margin: auto;
+                overflow-x: hidden;
+
+                border: 3px solid #FFFFFF;
+                box-shadow: 0 6px 15px rgba(36, 37, 38, 0.1);
+                background-color: #f8f8f8;
+            }
+
+            #header1 {
+                width: 110%;
+                max-width: 458px;
+                margin: 0 0 10px -4px;
+            !important;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header id="header1"><img id="topPic" src="../picture/updata.png"></img>
+</header>
+<br/>
+<div id="occlusionLayer"><!--遮挡层--></div>
+<nav id="menu" onclick="openMenu()"><!--菜单-->≡</nav>
+<!--000000000开发者选项000000000-->
+<article id="developerOptions">
+    <section id="developerOptionsLeft">
+        <h1>开发者选项</h1>
+        <input class="darkLightInput" id="deBug1" type="text" placeholder="输入指令"></input>
+    </section>
+    <section class="executeInstructions" id="deBug2" onclick="deBug()">
+    </section>
+</article>
+<!--0000000000弹窗0000000000-->
+<div id="popUp"><p id="popUpText"></p></div>
+<!--网站说明-->
+<section class="section1">
+    <img class="avatar" src="../picture/iceCube.png"></img>
+</section>
+<section class="section2">
+    <h1>更新内容</h1>
+    <p>iCE CUBE</p>
+</section>
+<!--==========段落==========-->
+<article class="article1">
+    <h1>2022/11/23更新内容</h1>
+    <h4></h4>
+    <ul type="disc">
+        <li>砍掉了留言板</li>
+        <li>全网站适配了PC的宽屏幕</li>
+    </ul>
+</article>
+<!--==========段落==========-->
+<article class="article1">
+    <h1>2020/3/26更新内容</h1>
+    <h4> PHP Yes!</h4>
+    <ul type="disc">
+        <li>添加了留言板</li>
+        <li>适配了PC主页面</li>
+    </ul>
+</article>
+<!--==========段落==========-->
+<article class="article1">
+    <h1>2020/3/20更新内容</h1>
+    <h4>Dark or Light?</h4>
+    <ul type="disc">
+        <li>新的div弹窗</li>
+        <li>开发者选项新增了一些指令（前往指令帮助文档查看）</li>
+        <li>将开发者选项移动到了菜单当中</li>
+        <li>较大的更新了PC端主页面</li>
+        <li>网站会记录深色/浅色模式的指令，以保证模式全局运行</li>
+    </ul>
+</article>
+
+<!--00000000000返回00000000000-->
+<nav id="nav1" class="article1 darkLightTop" onclick="navClick()"><p><strong>返回主页</strong></p></nav>
+
+
+</body>
+</html>
