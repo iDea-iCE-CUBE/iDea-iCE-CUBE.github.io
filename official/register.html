@@ -108,14 +108,6 @@
                 margin:5px 0 15px 20px;
                 font-size:14px;
             }
-            header{
-                position:fixed;
-                height:59px;
-                width:100%;
-                top:0;
-                background-color:white;
-                box-shadow: 0 0 25px rgba(36, 37, 38, 0.1);
-            }
             a{
                 /* 链接 */
                 color:black;
@@ -199,10 +191,8 @@
         <header>
             <img id="logo" onclick="toHome()" src="../img/iceLogo.jpg" alt="ice logo"/>
                 <nav>
-                    <a href="../index.html"">首页</a>
-                    <a href="./">待定</a>
-                    <a href="./">待定</a>
-                    <a href="./">关于</a>
+                    <a href="../index.html">首页</a>
+                    <a href="../index.html">关于</a>
                 </nav>
             <div id="avatarBox" onclick="accountSetting()" class="clickable"></div>
             <div id="searchIndex" class="clickable" onclick ='notIndex()'>
@@ -244,10 +234,23 @@
             </form>
         </article>
         <footer>
-
+            <span style="float:right;color:#888888">© 2020-2022 iCE Studio.</span>
+            <a class="clickable" style="color:#888888"
+               href="https://qm.qq.com/cgi-bin/qm/qr?k=HrnWZbONqp_B0AnK5KU_QXiejar89y5H&noverify=0&personal_qrcode_source=3">联系站长</a>
         </footer>
         <script>
-            
+            setTimeout("animalIndexStart()", 1);
+            var oHeader = document.getElementsByTagName("header");
+            var oFooter = document.getElementsByTagName("footer");
+            var oArticle = document.getElementsByTagName("article");
+
+            function animalIndexStart() {
+                oHeader[0].style.top = "0";
+                oFooter[0].style.opacity = "1";
+                oFooter[0].style.bottom = "0";
+                oArticle[0].style.marginTop = "100px";
+            }
+
             let flag1, flag2, flag3, flag4, pwdValue;
             let oFname = document.getElementById("fname");
             let oContent = document.getElementById("content");
@@ -297,6 +300,7 @@
                     oSmt.setAttribute('disabled','disabled');
                 }
             }
+
         function toHome(){
                  window.open("../index.html", "_self");
         }
