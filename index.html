@@ -10,6 +10,21 @@
             font-size: 16px;
             font-family: '微软雅黑';
             background-color: #fafafa;
+            overflow-y: scroll;
+        }
+
+        .card {
+            min-width: 10px;
+            min-height: 10px;
+            padding: 16px;
+            color: #646464;
+            box-shadow: 0 0 25px rgba(36, 37, 38, 0.1);
+            background-color: #FFFFFF;
+            border-radius: 25px;
+        }
+
+        .card h1 {
+            margin: 20px;
         }
 
         @font-face {
@@ -31,16 +46,16 @@
             background-color: white;
             box-shadow: 0 0 25px rgba(36, 37, 38, 0.1);
             /*动画*/
-            transition:all 0.5s cubic-bezier(0,1,0,1) 0s;
-            position:relative;
-            top:-100px;
+            transition: all 0.5s cubic-bezier(0, 1, 0, 1) 0s;
+            position: relative;
+            top: -200px;
         }
 
         a {
             /* 链接 */
             color: black;
             text-decoration: none;
-            transition: all 0.2s linear 0s;
+            transition: color 0.2s linear 0s;
         }
 
         a:hover {
@@ -126,50 +141,70 @@
             margin: 20px auto 20px auto;
             height: 500px;
         }
-        #load1{
-            margin-top:5.5%;
+
+        #load1 {
+            margin-top: 5.5%;
         }
+
         #bigSec {
             display: inline-block;
-            width: 50%;
+            width: 49%;
             padding: 0;
             margin: 0;
-            height: 340px;
+            height: 330px;
+            border: white solid 5px;
             border-radius: 10px;
-            background-image: url("img/icecube.png");
-            background-size:100%;
+            background-size: 102%;
             box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.1);
             /*动画*/
-            position:relative;
-            transition:all 1s cubic-bezier(0,1,0,1) 0.1s;
-            opacity:0;
-            top:100px;
+            position: relative;
+            transition: all 2s cubic-bezier(0, 1, 0, 1) 0s;
+            opacity: 0;
+            top: 100px;
+        }
+
+        #bigSec:hover {
+            transform: translateX(-30px) scale(1.1);
         }
 
         #smallSecBox {
             float: right;
             width: 50%;
-            padding:0;
+            padding: 0;
             margin: 0;
             height: 340px;
         }
-        .smallSec{
+
+        .smallSec {
             float: right;
-            width: 230px;
-            padding: 10px;
+            width: 258px;
+            padding: 5px;
             height: 140px;
+            border: white solid 5px;
             border-radius: 10px;
             background-color: white;
             box-shadow: 2px 2px 18px rgba(0, 0, 0, 0.1);
+            background-size: 102%;
+            background-position: center;
             /*动画*/
-            position:relative;
-            transition:all 1s cubic-bezier(0,1,0,1) 0s;
-            opacity:0;
-            top:50px;
+            position: relative;
+            transition: all 2s cubic-bezier(0, 1, 0, 1) 0s;
+            opacity: 0;
+            top: 50px;
         }
+
+        #load0 {
+            height: 1000px;
+            transition: all 1s cubic-bezier(0, 1, 0, 1) 0s;
+        }
+
+        #load0text p, #load0text h3, #load0text ul {
+            margin-left: 30px;
+        }
+
         footer {
-            position:fixed;
-            bottom: 0;
+            position: fixed;
+            bottom: -200px;
             height: 60px;
             width: 90%;
             padding: 30px 5% 0 5%;
@@ -177,17 +212,18 @@
             background-color: white;
             box-shadow: 0 0 25px rgba(36, 37, 38, 0.1);
             /*动画*/
-            transition:all 0.5s cubic-bezier(0,1,0,1) 0s;
-            position:relative;
-            top:100px;
+            transition: all 0.5s cubic-bezier(0, 1, 0, 1) 0s;
         }
-        .button{
-            transition:all 0.4s cubic-bezier(1,0,0,1) 0s;
+
+        .button {
+
         }
-        .button:hover{
-            transform:scale(1.1);
-            cursor:pointer;
+
+        .button:hover {
+            transform: scale(1.1);
+            cursor: pointer;
         }
+
         @media screen and (max-width: 1200px) {
             /*窄荧幕界面*/
             a {
@@ -198,58 +234,54 @@
 </head>
 <body>
 <header>
-    <img id="logo" src="img/iceLogo.jpg" alt="ice logo"/>
+    <a href="./index.html"><img id="logo" src="img/iceLogo.jpg" alt="ice logo"/></a>
     <nav>
-        <a id="focusA" href="./index.html">首页</a>
-        <a href="./">待定</a>
-        <a href="./">待定</a>
-        <a href="./">关于</a>
+        <a class="nav" id="focusA" href="javascript:changeIndex();">首页</a>
+        <a class="nav" href="./" style="display: none">待定</a>
+        <a class="nav" href="./" style="display: none">待定</a>
+        <a class="nav" href="javascript:changeInfo();">关于</a>
     </nav>
     <div id="avatarBox" onclick="accountSetting()" class="clickable"></div>
     <div id="searchIndex" class="clickable" onclick='notIndex()'>
         搜索&nbsp;&nbsp;<span class="iconfont">&#xe63c;</span>
     </div>
 </header>
-<script>
-    setTimeout("headerStart()", 1 );
-    function headerStart() {
-        var oHeader = document.getElementsByTagName("header");
-        oHeader[0].style.top = "0";
-    }
-</script>
+
 <div id="centerBox">
+    <div id="load0" class="card" style="display:none">
+        <div id="load0text">
+            <h1>关于丨info</h1>
+            <p>
+                欢迎来到新iCE Web，该页面由iCE CUBE开发。<br/>
+                iCE Web已开发出账号系统，但因服务器条件暂时停止该功能，请期待后续更新。
+            </p>
+            <h1>更新日志</h1>
+            <h3>2022/11/25更新内容</h3>
+            <ul>
+                <li>主页面，账号系统页面焕然一新</li>
+                <li>给所有页面添加了动画</li>
+            </ul>
+        </div>
+    </div>
     <div id="load1">
-        <div id="bigSec" class="button" onclick=window.open("oldWeb","_self")></div>
-        <script>
-            setTimeout("bigSecStart()", 1 );
-            function bigSecStart() {
-                var oBigSec = document.getElementById("bigSec");
-                oBigSec.style.opacity = "1";
-                oBigSec.style.top = "0";
-            }
-        </script>
+        <div id="bigSec" class="button" style="background-image: url('img/oldIceWeb.png')"
+             onclick=window.open("oldWeb","_self")></div>
+
         <div id="smallSecBox">
-            <div class="smallSec button" style="margin-left:5%;"></div>
-            <script>
-                setTimeout("smallSecStart(1)", 1 );
-                function smallSecStart(num) {
-                    var oSmallSec = document.getElementsByClassName("smallSec");
-                    oSmallSec[num].style.opacity = "1";
-                    oSmallSec[num].style.top = "0";
-                }
-            </script>
-            <div class="smallSec button" ></div>
-            <script>
-                setTimeout("smallSecStart(0)", 100 );
-            </script>
-            <div class="smallSec button" style="margin-left:5%;margin-top:20px;"></div>
-            <script>
-                setTimeout("smallSecStart(3)", 200 );
-            </script>
-            <div class="smallSec button" style="margin-top:20px;"></div>
-            <script>
-                setTimeout("smallSecStart(2)", 300 );
-            </script>
+            <a href="https://www.bilibili.com/video/BV1X34y1p7sj">
+                <div class="smallSec button" style="margin-left:20px;background-image:url('img/i1.jpg');"></div>
+            </a>
+            <a href="https://www.bilibili.com/video/BV1h84y1i7Am">
+                <div class="smallSec button" style="background-image: url('img/i2.jpg');"></div>
+            </a>
+            <a href="official/register.html">
+                <div class="smallSec button"
+                     style="margin-left:20px;margin-top:20px;background-image: url('img/i4.png');"></div>
+            </a>
+            <a href="javascript:changeInfo();">
+                <div class="smallSec button" style="margin-top:20px;background-image:url('img/i3.png');"></div>
+            </a>
+
         </div>
     </div>
 </div>
@@ -259,22 +291,65 @@
        href="https://qm.qq.com/cgi-bin/qm/qr?k=HrnWZbONqp_B0AnK5KU_QXiejar89y5H&noverify=0&personal_qrcode_source=3">联系站长</a>
 </footer>
 <script>
-    setTimeout("footerStart()", 1 );
-    function footerStart() {
-        var oFooter = document.getElementsByTagName("footer");
+    setTimeout("animalIndexStart()", 1);
+    var oHeader = document.getElementsByTagName("header");
+    var oBigSec = document.getElementById("bigSec");
+    var oFooter = document.getElementsByTagName("footer");
+    var oSmallSec = document.getElementsByClassName("smallSec");
+    var oNav = document.getElementsByClassName("nav");
+    var oLoad0 = document.getElementById("load0");
+    var oLoad0text = document.getElementById("load0text");
+
+    function animalIndexStart() {
+        oHeader[0].style.top = "0";
+        oBigSec.style.opacity = "1";
+        oBigSec.style.top = "0";
         oFooter[0].style.opacity = "1";
-        oFooter[0].style.top = "0";
+        oFooter[0].style.bottom = "0";
+        setTimeout("oLoad0.style.marginTop=\"100px\";oLoad0.style.opacity=\"0\";", 100);
+        setTimeout("smallSecStart(1)", 1);
+        setTimeout("smallSecStart(2)", 300);
+        setTimeout("smallSecStart(0)", 100);
+        setTimeout("smallSecStart(3)", 200);
     }
-</script>
-<script>
+
+    function animalIndexOut() {
+        oBigSec.style.opacity = "0";
+        oBigSec.style.top = "100px";
+        setTimeout("oLoad0.style.marginTop=\"0\";oLoad0.style.opacity=\"1\";", 200);
+        setTimeout("smallSecOut(1)", 60);
+        setTimeout("smallSecOut(2)", 50);
+        setTimeout("smallSecOut(0)", 60);
+        setTimeout("smallSecOut(3)", 50);
+    }
+
+    function smallSecStart(num) {
+        oSmallSec[num].style.opacity = "1";
+        oSmallSec[num].style.top = "0";
+    }
+
+    function smallSecOut(num) {
+        oSmallSec[num].style.opacity = "0";
+        oSmallSec[num].style.top = "100px";
+    }
+
+    function changeInfo() {
+        animalIndexOut();
+        setTimeout("oLoad0.style.display = \"block\";", 100);
+        oNav[0].id = "none";
+        oNav[3].id = "focusA";
+    }
+
+    function changeIndex() {
+        animalIndexStart();
+        oLoad0.style.display = "none";
+        oNav[3].id = "none";
+        oNav[0].id = "focusA";
+    }
+
     function accountSetting() {
         window.open("official/login.html", "_self");
     }
-
-    function toHome() {
-        window.open("index.html", "_self");
-    }
-
 
     function notIndex() {
         alert("即将上线丨敬请期待");
