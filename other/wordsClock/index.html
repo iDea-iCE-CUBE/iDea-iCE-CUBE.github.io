@@ -41,7 +41,7 @@
 <body>
 <div class="card" id="clock"></div>
 <div class="card" id="tips">
-  <h3>现在你应该</h3>
+  <h3 id="littleTitle">现在你应该</h3>
   <h1 id="superTips" style="font-size:40px"></h1>
 </div>
 <div class="card" id="content">
@@ -223,7 +223,8 @@
       }
     }
     else if(hour >= 23){
-      fadeOutAndFadeIn(document.getElementById("superTips"), "你做到了！SUPPORTED BY 高二（13）学习委员");
+      fadeOutAndFadeIn(document.getElementById("littleTitle"), "你做到了！");
+      fadeOutAndFadeIn(document.getElementById("superTips"), "由高三（13）班学习委员提供技术支持，干得不错");
     }
   }
 
