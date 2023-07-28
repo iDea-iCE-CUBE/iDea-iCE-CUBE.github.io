@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="../../css/thinice.css" rel="stylesheet" type="text/css">
+  <style>
+    body{
+      font-family:微软雅黑, sans-serif;
+      display: flex;
+      flex-wrap:wrap;
+    }
+    #clock {
+      display: inline-block;
+      flex-grow: 1;
+
+      font-size: 100px;
+      font-weight: bold;
+      text-align: center;
+    }
+    #content{
+      flex-grow: 1;
+      display: inline-block;
+    }
+    #tips{
+      flex-grow:1;
+    }
+    #timeTable{
+      text-align: center;
+      flex-grow: 1;
+    }
+    li{
+      margin:10px 0 10px 0;
+    }
+    .card{
+      padding:100px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="card" id="clock"></div>
+<div class="card" id="tips">
+  <h3>现在你应该</h3>
+  <h1 id="superTips" style="font-size:40px"></h1>
+</div>
+<div class="card" id="content">
+  <h3>3864单词钟</h3>
+  <h3>这个网页有什么作用</h3>
+  <ul>
+    <li>首先，如果你想在一天之内过一遍3864个单词，我给你一个很好的时间安排，见下图</li>
+    <li>这个一日单词时间计划表，除去8小时睡觉时间，将一天拆分为16个小时</li>
+    <li>其中，上午8点之前吃完早饭。中午吃饭+午睡2个小时。晚上吃饭1个小时，剩余12个小时用于背单词</li>
+    <li>虽然看起来很疯狂，但其实跟在学校上一整天课也差不多。一天时间就可以过完一遍3864，岂不乐哉</li>
+    <li>如果你打算依据下图单词时间表来背诵单词。那么上面单词钟可以提示你你每秒钟该干什么，包括休息，吃饭，复习，都会提示</li>
+    <li>你只需要严格按照时间表背诵单词即可，早上八点之前打开这个网页。根据提示，到点后准时开始背单词，准秒复习单词</li>
+  </ul>
+  <h3>在这12个小时中，你只需要</h3>
+  <ul>
+    <li>8s过一个单词</li>
+    <li>1min过7个单词（每分钟会有多余4s复习这7个单词）</li>
+    <li>1h过322单词（不算上每分钟多余的4s，每小时会有多余13.5分钟复习这322个单词或者休息）</li>
+  </ul>
+</div>
+<div class="card" id="timeTable" style="padding:10px">
+  <img class="pcElement" style="width:600px" src="timeTable.png">
+  <img class="peElement" style="height:1000px" src="timeTable.png">
+</div>
+<script>
+
+  function fadeOutAndFadeIn(element, newText) {
+    var op = 1;  // 初始透明度为1
+
+    // 检查新文本是否与旧文本完全一致
+    if (element.textContent !== newText) {
+      // 创建一个计时器，每10毫秒将透明度降低0.1，直到透明度为0
+      var timer = setInterval(function () {
+        if (op <= 0.1) {
+          clearInterval(timer);  // 清除计时器
+          element.textContent = newText;  // 修改元素文本
+          fadeIn(element);  // 淡入新文本
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+      }, 10);
+    }
+  }
+
+  function fadeIn(element) {
+    var op = 0.1;  // 初始透明度为0.1
+    element.style.display = 'block';  // 显示元素
+
+    // 创建一个计时器，每10毫秒将透明度增加0.1，直到透明度为1
+    var timer = setInterval(function () {
+      if (op >= 1) {
+        clearInterval(timer);  // 清除计时器
+      }
+      element.style.opacity = op;
+      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+      op += op * 0.1;
+    }, 10);
+  }
+
+
+  function updateClock() {
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+
+    hour = ('0' + hour).slice(-2);
+    minute = ('0' + minute).slice(-2);
+    second = ('0' + second).slice(-2);
+
+    var time = hour + ':' + minute + ':' + second;
+
+    document.getElementById('clock').textContent = time;
+
+    if(hour <8){
+      fadeOutAndFadeIn(document.getElementById("superTips"), "等待8点背诵单词");
+    }
+    else if(hour <12 && minute < 47 && second<56) {
+      if (second < 8) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(1)");
+      } else if (second < 16) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(2)");
+      } else if (second < 24) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(3)");
+      } else if (second < 32) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(4)");
+      } else if (second < 40) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(5)");
+      } else if (second < 48) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(6)");
+      } else if (second < 56) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(7)");
+      }
+    }
+    else if(hour <12 && minute < 47 && second >= 56 ){
+      fadeOutAndFadeIn(document.getElementById("superTips"), "复习这7个单词");
+    }
+    else if(hour <12 && minute >=47){
+      if (hour == 8) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第1-322个单词");
+      } else if (hour == 9) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第323-644个单词");
+      } else if (hour == 10) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第645-966个单词)");
+      } else if (hour == 11) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第967-1288个单词");
+      }
+    }
+    else if(hour == 12){
+      fadeOutAndFadeIn(document.getElementById("superTips"), "加油！你已经完成了1/3，请等到14:00开始继续背单词");
+    }
+    else if(hour < 14){
+      fadeOutAndFadeIn(document.getElementById("superTips"), "加油！你已经完成了1/3，请等到14:00开始继续背单词");
+    }
+    else if(hour <18 && minute < 47 && second<56 ){
+      if (second < 8) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(1)");
+      } else if (second < 16) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(2)");
+      } else if (second < 24) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(3)");
+      } else if (second < 32) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(4)");
+      } else if (second < 40) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(5)");
+      } else if (second < 48) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(6)");
+      } else if (second < 56) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(7)");
+      }
+    }
+    else if(hour <18 && minute < 47 && second >= 56 ){
+      fadeOutAndFadeIn(document.getElementById("superTips"), "复习这7个单词");
+    }
+    else if(hour <18 && minute >=47){
+      if (hour == 14) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第1289-1610个单词");
+      } else if (hour == 15) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第1611-1932个单词");
+      } else if (hour == 16) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第1933-2254个单词");
+      } else if (hour == 17) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第2255-2576个单词");
+      }
+    }
+    else if(hour == 18){
+      fadeOutAndFadeIn(document.getElementById("superTips"), "现在是吃晚饭时间，请等到19:00开始继续背单词");
+    }
+    else if(hour <23 && minute < 47 && second<56 ){
+      if (second < 8) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(1)");
+      } else if (second < 16) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(2)");
+      } else if (second < 24) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(3)");
+      } else if (second < 32) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(4)");
+      } else if (second < 40) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(5)");
+      } else if (second < 48) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(6)");
+      } else if (second < 56) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "背诵7个单词(7)");
+      }
+    }
+    else if(hour <23 && minute < 47 && second >= 56 ){
+      fadeOutAndFadeIn(document.getElementById("superTips"), "复习这7个单词");
+    }
+    else if(hour <23 && minute >=47){
+      if (hour == 19) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第2577-2898个单词");
+      } else if (hour == 20) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第2899-3220个单词");
+      } else if (hour == 21) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第3221-3542个单词");
+      } else if (hour == 22) {
+        fadeOutAndFadeIn(document.getElementById("superTips"), "在这13分钟，复习这个小时背的第3543-3864个单词");
+      }
+    }
+    else if(hour >= 23){
+      fadeOutAndFadeIn(document.getElementById("superTips"), "你做到了！SUPPORTED BY 高二（13）学习委员");
+    }
+  }
+
+  setInterval(updateClock, 1000); // Update clock every second
+</script>
+</body>
+</html>
