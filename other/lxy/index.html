@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body{
+            background: black;
+            color: white;
+            font-family: Microsoft YaHei;
+            font-weight: bolder;
+        }
+        #clock {
+            font-size:400px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+<div id="clock" onclick="openFullscreen();">00:00:00</div>
+<div style="position:absolute;right:30px;bottom:30px"><span style="font-size:30px">SUPPROTED</span><br/>BY 学习委员</div>
+
+<script>
+    const clockElement = document.getElementById('clock');
+
+    function openFullscreen() {
+        clockElement.classList.add('fullScreen');
+
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        }
+    }
+
+    // 实现时钟逻辑
+
+    setInterval(updateTime, 1000);
+
+    function updateTime() {
+        const now = new Date();
+        const time = now.toLocaleTimeString();
+        clockElement.innerHTML = time;
+    }
+
+</script>
+
+</body>
+</html>
