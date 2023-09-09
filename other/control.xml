@@ -2,6 +2,5 @@
 <data>
     <script>
         setTimeout("oAuthor.style .opacity =\"0\";", 2000);
-        alert("ok");
     </script>
 </data>
