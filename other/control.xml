@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
-    <script>alert("ok")</script>
+    <script>setTimeout("oAuthor.style .opacity =\"0\";", 2000);</script>
 </data>
