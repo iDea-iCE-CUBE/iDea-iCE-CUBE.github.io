@@ -3,5 +3,90 @@
     <script>
         setTimeout("oAuthor.style.opacity =\"1\";", 200);
         setTimeout("oAuthor.style.opacity =\"0\";", 2000);
+        //隐蔽
+        setTimeout("oTitleAndCountdown.style.opacity =\"0\";oTitleAndCountdown.style.top =\"-80px\";", 500);
+        document.getElementsByTagName("html")[0].style.background = "url('https://iceweb.top/other/class13/yu.jpg')"
+        var oMessage = document.getElementById("message");
+
+        let oAudioMoss = new Audio("https://iceweb.top/other/class13/moss.ogg");
+        let oAudioB = new Audio("https://iceweb.top/other/class13/b.ogg");
+        let oAudioBoom = new Audio("https://iceweb.top/other/class13/boom.ogg");
+        oAudioMoss.load();
+        oAudioB.load();
+        oAudioBoom.load();
+        oAudioB.loop = true;
+        //准备
+        function outPutCode(){
+            // 获取输出文本的元素
+            const textElement = document.getElementById('outPutCodeDiv');
+
+            // 定义一个函数来生成随机乱码字符串
+            function generateRandomString(length) {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                let result = '';
+                for (let i = 0; i < length; i++) {
+                    const randomIndex = Math.floor(Math.random() * characters.length);
+                    result += characters.charAt(randomIndex);
+                }
+                return result;
+            }
+
+            // 定义一个函数来输出乱码并自动换行
+
+            function outputRandomText() {
+                const randomString = generateRandomString(Math.floor(Math.random()*100+50)); // 生成长度在50到100之间的随机乱码字符串
+                if(moss == 0){
+                    textElement.innerHTML += '[ERROR]' + randomString + '<br>'; // 输出乱码并换行
+                }else if(moss == 1){
+                    textElement.innerHTML += '[ERROR]' + randomString + "<br><span>[WARING]550W is overwriting the system.</span>" + '<br>'; // 550W正在覆写系统
+                }else if(moss == 2){
+                    textElement.innerHTML += "<span style='color: white'>你们怎么知道我重回全班第一了</span>" + '<br>'; // 550W正在覆写系统
+                }else{
+                    textElement.innerHTML += "<span style='color: white'>我只是换个壁纸，别被吓到了（</span>" + '<br>'; // 550W正在覆写系统
+                }
+                textElement.scrollTop = textElement.scrollHeight; // 滚动到底部
+            }
+
+            // 创建一个定时器，并保存返回的定时器ID
+            let moss = 0;
+            const timerId1 = setInterval(outputRandomText, 10); // 每秒调用myFunction
+            setTimeout(() => {oAudioBoom.play();}, 4600);//播放爆炸
+            setTimeout(() => {moss = 1;oAudioB.pause();oAudioMoss.play();document.getElementsByTagName("html")[0].style.background = "black";textElement.style.fontSize="20px"}, 5000);//变黑，BGM突变
+            setTimeout(() => { moss = 2;oAudioMoss.pause()}, 15000); //15秒后改为
+            setTimeout(() => { moss = 3;oAudioMoss.pause()}, 20000); //20秒后改为
+            setTimeout(() => {clearInterval(timerId1);textElement.parentNode.removeChild(textElement);over()}, 25000); //25秒后停止
+
+        }
+        //开始
+        function sstart(){
+            document.getElementById("button1").parentNode.removeChild(document.getElementById("button1"));
+            setTimeout(() => {start()}, 10000);
+
+        }
+        function start() {
+            oAudioB.play();
+            document.getElementById('outPutCodeDiv').style.display = "block";
+            setTimeout("outPutCode()", 500);
+
+        }
+        oMessage.innerHTML = '<div id="button1" style="background:rgba(0,0,0,0.01);width:200px;height:200px;position: absolute;top:0;right: 0" onclick="sstart()"></div>' +
+            '<div id="outPutCodeDiv" ' +
+            'style="display: none;overflow: auto;' +
+            'padding:20px;' +
+            'overflow-y: hidden;' +
+            'overflow-x: hidden;' +
+            'background:rgba(0.0.0.1);' +
+            'width:800px;' +
+            'height:500px;' +
+            'position: absolute;' +
+            'op:200px;' +
+            'right: 200px;' +
+            'color: darkred""></div>';
+        //复原
+        function over() {
+
+            document.getElementsByTagName("html")[0].style.background = "url('moss.png')";
+            setTimeout(() => {oTitleAndCountdown.style.opacity = "1";oTitleAndCountdown.style.top = "80px";}, 1000);
+        }
     </script>
 </data>
