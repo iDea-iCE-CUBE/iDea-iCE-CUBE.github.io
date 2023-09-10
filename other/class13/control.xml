@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <script>
+        <![CDATA[
         setTimeout("oAuthor.style.opacity =\"1\";", 200);
         setTimeout("oAuthor.style.opacity =\"0\";", 2000);
 
@@ -89,6 +90,6 @@
             document.getElementsByTagName("html")[0].style.background = "url('moss.png')";
             setTimeout(() => {oTitleAndCountdown.style.opacity = "1";oTitleAndCountdown.style.top = "80px";}, 1000);
         }
-        
+        ]]
     </script>
 </data>
