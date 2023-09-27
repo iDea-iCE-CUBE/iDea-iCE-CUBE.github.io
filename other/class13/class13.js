@@ -37,3 +37,76 @@
         }else {
             console.log("不变");
         }
+//拓展，熊佳圆
+    //拓展，熊佳圆
+    //拓展，熊佳圆
+    //拓展，熊佳圆
+    //拓展，熊佳圆
+    
+    let now = new Date();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+    let time = hour * 100 + minute; // 将时间转化为一个整数表示，例如 8:45 变成 845
+    if (time >= 0 && time <= 1000) {
+        
+        let titleAndCountdown = document.getElementById("titleAndCountdown");
+
+        setTimeout(function () {
+            tiaoyue();
+            titleAndCountdown.style.fontSize = "200px";
+            titleAndCountdown.style.right = "100px";
+        }, 1000);
+        setTimeout(function () {
+            titleAndCountdown.style.opacity = "0";
+        }, 1500);
+        setTimeout(function () {
+            titleAndCountdown.style.opacity = "1";
+            titleAndCountdown.textContent = "9月28日,熊佳圆 生日快乐";
+        }, 5000);
+        setTimeout(function () {
+            titleAndCountdown.style.opacity = "0";
+        }, 5000+ 60000);
+        setTimeout(function () {
+            detiaoyue();
+            titleAndCountdown.style.opacity = "1";
+            titleAndCountdown.innerHTML = '<img id="title" src="img/title.svg"/><div id="countdown">000</div>';
+            document.getElementById("countdown").textContent = daysRemaining;
+            titleAndCountdown.style.right = "10px";
+            titleAndCountdown.style.top = "0";
+            titleAndCountdown.lastElementChild.style.right = "247px";
+        },  6000+ 60000);
+        let deTiaoYue = false;
+        function tiaoyue(){
+                let i = 0;
+                const intervalIdTiaoyue = setInterval(function () {
+
+                    if (deTiaoYue){
+                        clearInterval(intervalIdTiaoyue);
+                        for (let i = 0; i < oLi.length; i++) {
+                            oLi[i].style.right = "-50px";
+                            oLi[i].style.borderLeft = "0 solid white";
+                            oLi[i].style.backgroundColor = "rgba(255,255,255,0.1)";
+                        }
+                        setTimeout(function () {turnClass(classTimes);}, 2000);
+                    }
+
+                    //回避
+                    for (let i = 0; i < oLi.length; i++) {
+                        oLi[i].style.right = "-50px";
+                        oLi[i].style.borderLeft = "0 solid white";
+                        oLi[i].style.backgroundColor = "rgba(255,255,255,0.1)";
+                    }
+                    //突出
+                    oLi[i].style.backgroundColor = "rgba(255,255,255,1)";
+                    oLi[i].style.right = "-20px";
+                    // 循环 i 在 1 到 9 之间
+                    i = i + 1;
+                    if (i == oLi.length) {
+                        i = 0;
+                    }
+                }, 150);
+        }
+        function detiaoyue(){
+            deTiaoYue = true;
+        }
+    }
