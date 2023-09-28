@@ -48,7 +48,7 @@
         let oHtml = document.getElementsByTagName("html")[0];
 
         setTimeout(function () {
-            tiaoyue();
+          //  tiaoyue();
             titleAndCountdown.style.fontSize = "200px";
             titleAndCountdown.style.right = "100px";
         }, 1000);
