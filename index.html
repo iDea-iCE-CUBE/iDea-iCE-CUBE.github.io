@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
-    <link rel="shortcut icon" href="img/iceLogo.ico">
+    <link rel="shortcut icon" href="img/thiniceIco.ico">
     <title>iCE Web 主页</title>
     <style>
         body {
@@ -352,7 +352,29 @@
     <a class="clickable" style="color:#888888"
        href="https://qm.qq.com/cgi-bin/qm/qr?k=HrnWZbONqp_B0AnK5KU_QXiejar89y5H&noverify=0&personal_qrcode_source=3">联系站长</a>
 </footer>
-
+<?php
+if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
+    if ($_SESSION['avatarId'] != null) {
+        echo '
+                    <script>
+                        let oAvatarBox = document.getElementById("avatarBox");
+                        oAvatarBox.style.backgroundImage="url(\'avatar/' . $_SESSION['avatarId'] . '\')";
+                        function accountSetting(){
+                            window.open("official/login.html", "_self");
+                        }
+                    </script>
+                    ';
+    }
+} else {
+    echo '
+                <script>
+                    function accountSetting(){
+                        window.open("official/login.html", "_self");
+                    }
+                </script>
+            ';
+}
+?>
 <script>
     setTimeout("animalIndexStart()", 1);
     var oHeader = document.getElementsByTagName("header");
