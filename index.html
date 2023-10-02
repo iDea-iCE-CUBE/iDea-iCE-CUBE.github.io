@@ -60,7 +60,7 @@
         }
 
         a:hover {
-            color: dodgerblue;
+            color: #2B5CFF;
         }
 
         nav {
@@ -83,7 +83,7 @@
 
         #focusA {
             /* 当前导航选项的蓝色底 */
-            border-bottom: dodgerblue solid 5px;
+            border-bottom: #2B5CFF solid 5px;
         }
 
         #logo {
@@ -107,7 +107,7 @@
 
         #searchIndex:hover {
             /* 搜索键 */
-            color: dodgerblue;
+            color: #2B5CFF;
             background-color: #e9eff6;
         }
 
@@ -134,7 +134,7 @@
 
         #avatarBox:hover {
             /* 头像容器 */
-            border-color: dodgerblue;
+            border-color: #2B5CFF;
         }
 
         #centerBox {
@@ -352,8 +352,8 @@
     <a class="clickable" style="color:#888888"
        href="https://qm.qq.com/cgi-bin/qm/qr?k=HrnWZbONqp_B0AnK5KU_QXiejar89y5H&noverify=0&personal_qrcode_source=3">联系站长</a>
 </footer>
-<?php
-if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
+
+<!--if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
     if ($_SESSION['avatarId'] != null) {
         echo '
                     <script>
@@ -373,8 +373,8 @@ if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
                     }
                 </script>
             ';
-}
-?>
+}-->
+
 <script>
     setTimeout("animalIndexStart()", 1);
     var oHeader = document.getElementsByTagName("header");
