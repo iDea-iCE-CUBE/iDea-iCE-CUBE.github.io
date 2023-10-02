@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+    <link rel="shortcut icon" href="img/iceLogo.ico">
     <title>iCE Web 主页</title>
     <style>
         body {
@@ -144,7 +145,7 @@
         }
 
         #load1 {
-            width:100%;
+            width: 100%;
             margin-top: 5.5%;
         }
 
@@ -166,7 +167,7 @@
         }
 
         #bigSec:hover {
-            transform:scale(1.1);
+            transform: scale(1.1);
         }
 
         #smallSecBox {
@@ -225,57 +226,68 @@
             transform: scale(1.1);
             cursor: pointer;
         }
-        #smallSec1{
-            margin-left:20px;
+
+        #smallSec1 {
+            margin-left: 20px;
         }
-        #smallSec3{
-            margin-left:20px;
+
+        #smallSec3 {
+            margin-left: 20px;
         }
+
         @media screen and (min-width: 1100px) {
-        .minScreen {
-            display: none;
-        }
+            .minScreen {
+                display: none;
+            }
+
             #bigSec:hover {
                 transform: translateX(-30px) scale(1.1);
             }
         }
+
         @media screen and (max-width: 1100px) {
             /*窄荧幕界面*/
-            #searchIndex{
+            #searchIndex {
                 display: none;
             }
-            #centerBox{
+
+            #centerBox {
                 width: 95%;
             }
-            #bigSec{
+
+            #bigSec {
                 width: 340px;
-                height:196px;
+                height: 196px;
                 display: block;
                 margin: auto;
             }
-            #smallSecBox{
+
+            #smallSecBox {
                 width: 350px;
                 float: none;
-                margin:20px auto;
+                margin: 20px auto;
             }
-            .smallSec{
+
+            .smallSec {
                 float: none;
                 display: inline-block;
-                width:150px;
-                height:80px;
+                width: 150px;
+                height: 80px;
             }
-            #smallSec1{
-                margin:auto 3px auto 0;
+
+            #smallSec1 {
+                margin: auto 3px auto 0;
             }
-            #smallSec3{
-                margin:auto 3px auto 0;
+
+            #smallSec3 {
+                margin: auto 3px auto 0;
             }
         }
     </style>
 </head>
 <body>
 <header>
-    <a href="./index.html"><img id="logo" src="img/iceLogo.jpg" alt="ice logo"/></a>
+    <a href="1.php" ><img id="logo" src="img/thiniceLogo.svg" alt="ice logo"/></a>
     <nav>
         <a class="nav" id="focusA" href="javascript:changeIndex();">首页</a>
         <a class="nav" href="./" style="display: none">待定</a>
@@ -293,7 +305,8 @@
         <div id="load0text">
             <h1>关于丨info</h1>
             <p>
-                <strong class="minScreen">检测到您是移动端设备，已自动设定宽高样式!</strong><br class="minScreen"/><br class="minScreen"/>
+                <strong class="minScreen">检测到您是移动端设备，已自动设定宽高样式!</strong><br class="minScreen"/><br
+                        class="minScreen"/>
                 欢迎来到新iCE Web，该页面由iCE CUBE开发<br/><br class="minScreen"/>
                 iCE Web已开发出账号系统，但因服务器条件暂时停止该功能，请期待后续更新。
             </p>
@@ -301,10 +314,10 @@
             <h3>2022/11/25更新预告</h3>
             <ul>
                 <li>账号系统页面更新</li>
+                <li>THINICE表单框架构建完成</li>
             </ul>
             <h3>2022/11/25更新内容</h3>
             <ul>
-                <li>THINICE表单框架构建完成</li>
                 <li>主页面，账号系统页面焕然一新</li>
                 <li>给所有页面添加了动画</li>
             </ul>
@@ -324,7 +337,8 @@
                 <div class="smallSec button" style="background-image: url('img/i2.jpg');"></div>
             </a>
             <a href="official/register.html">
-                <div class="smallSec button" id="smallSec3" style=";margin-top:20px;background-image: url('img/i4.png');"></div>
+                <div class="smallSec button" id="smallSec3"
+                     style=";margin-top:20px;background-image: url('img/i4.png');"></div>
             </a>
             <a href="javascript:changeInfo();">
                 <div class="smallSec button" style="margin-top:20px;background-image:url('img/i3.png');"></div>
@@ -338,6 +352,7 @@
     <a class="clickable" style="color:#888888"
        href="https://qm.qq.com/cgi-bin/qm/qr?k=HrnWZbONqp_B0AnK5KU_QXiejar89y5H&noverify=0&personal_qrcode_source=3">联系站长</a>
 </footer>
+
 <script>
     setTimeout("animalIndexStart()", 1);
     var oHeader = document.getElementsByTagName("header");
