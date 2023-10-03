@@ -37,3 +37,24 @@
         }else {
             console.log("不变");
         }
+        //今天没有课表
+        let oMessage = document.getElementById("message");
+            oMessage.style.fontSize ="50px";
+            oMessage.style.position ="absolute";
+            oMessage.style.left ="300px";
+            oMessage.style.top ="300px";
+            oMessage.textContent = "今天不知道课表";
+            setTimeout(function () {
+        
+                for (let i = 0; i < oLi.length; i++) {
+                    setTimeout(function () {
+                        oLi[i].style.right = "-200px";
+                        oLi[i].style.borderLeft = "0 solid white";
+                        oLi[i].style.backgroundColor = "rgba(255, 255, 255,0.5)";
+                    }, i * 100);
+                }
+                setTimeout(function () {
+                    ulElement.style.display = "none";
+                    oMessage.style.display ="none";
+                }, 1500);
+            }, 2000);
