@@ -37,7 +37,9 @@
         }else {
             console.log("不变");
         }
+
         //今天没有课表
+/**
         let oMessage = document.getElementById("message");
             oMessage.style.fontSize ="50px";
             oMessage.style.position ="absolute";
@@ -58,3 +60,4 @@
                     oMessage.style.display ="none";
                 }, 1500);
             }, 2000);
+**/
