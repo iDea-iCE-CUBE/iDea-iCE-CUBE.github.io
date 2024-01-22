@@ -62,4 +62,4 @@
             }, 2000);
 **/
 
-document.getElementsByTagName('html')[0].style.background = 'url(https://s11.ax1x.com/2024/01/02/pij0H81.jpg) center/cover';
+document.getElementsByTagName('html')[0].style.background = 'url(https://img2.imgtp.com/2024/01/22/WgkfFV4b.jpg) center/cover';
